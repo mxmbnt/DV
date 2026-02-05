@@ -1,5 +1,7 @@
 // Hero - Section principale
 
+import ContactButton from "@/components/ContactButton"
+
 export default function Hero() {
   const marqueeItems = [
     'Client Fiable',
@@ -11,11 +13,11 @@ export default function Hero() {
   ]
 
   return (
-    <section className="pt-20 pb-0 bg-transparent min-h-[90vh] relative overflow-hidden">
+    <section className="pt-20 pb-0 bg-transparent relative overflow-hidden">
       <div className="container-main relative">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 pt-8 max-w-3xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 pt-8 max-w-5xl mx-auto">
           {/* Colonne gauche */}
-          <div className="max-w-sm text-center lg:text-left">
+          <div className="max-w-xl text-center lg:text-left">
             {/* Badge confiance */}
             <div className="inline-flex items-center gap-2 bg-white rounded-full px-3 py-1.5 mb-6 shadow-sm">
               <div className="flex -space-x-1.5">
@@ -23,52 +25,35 @@ export default function Hero() {
                 <img src="https://i.pravatar.cc/24?img=2" alt="" className="w-6 h-6 rounded-full border-2 border-white" />
                 <img src="https://i.pravatar.cc/24?img=3" alt="" className="w-6 h-6 rounded-full border-2 border-white" />
               </div>
-              <span className="text-xs text-gray-700">Confiance de 5+ entreprises</span>
+              <span className="text-[16px] text-gray-700">Confiance de 5+ entreprises</span>
             </div>
 
-            {/* Titre avec logo positionné */}
-            <div className="relative">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight tracking-tight">
-                Des sites web
-                <br />
+            {/* Titre avec logo au même niveau que "attirent" (caché sur mobile) */}
+            <h1 className="text-[74px] font-bold text-black leading-tight tracking-tight">
+              Des sites web
+              <br />
+              <span className="inline-flex flex-wrap items-baseline gap-3 md:gap-6">
                 qui <span style={{ color: '#2A00FF' }}>attirent</span>
-              </h1>
-              
-              {/* Logo bleu positionné à droite du texte - Visible uniquement sur desktop */}
-              <span className="hidden lg:flex absolute top-0 -right-14 lg:-right-16 w-10 h-10 md:w-12 md:h-12 rounded-xl items-center justify-center p-2 rotate-12" style={{ backgroundColor: '#2A00FF' }}>
-                <img src="/logos/WEgbRtdISL58zfOFWPbolgMtZU.png" alt="" className="w-full h-full object-contain" />
+                <span className="hidden md:inline-flex w-10 h-10 md:w-12 md:h-12 rounded-xl items-center justify-center p-2 shrink-0 align-baseline rotate-12 ml-1 md:ml-2" style={{ backgroundColor: '#2A00FF' }}>
+                  <img src="/logos/WEgbRtdISL58zfOFWPbolgMtZU.png" alt="" className="w-full h-full object-contain" />
+                </span>
               </span>
-            </div>
+            </h1>
 
             {/* Sous-titre */}
-            <p className="mt-5 text-sm md:text-base text-gray-500 leading-relaxed">
+            <p className="mt-5 text-[18px] text-gray-500 leading-relaxed">
               Créez plus vite. Optimisez mieux. Développez votre activité avec des sites web percutants.
             </p>
 
-            {/* CTA */}
+            {/* CTA - même style que Tarifs */}
             <div className="mt-7">
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2.5 bg-black text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors"
-              >
+              <ContactButton className="h-[60px] min-w-[210px] lg:min-w-[229px]" large>
                 Demandez un devis
-                <span className="relative w-6 h-6 rounded-full flex items-center justify-center overflow-hidden">
-                  {/* Fond blanc par défaut */}
-                  <span className="absolute inset-0 bg-white rounded-full" />
-                  
-                  {/* Fond bleu avec animation splash */}
-                  <span className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center" style={{ backgroundColor: '#2A00FF' }} />
-                  
-                  {/* Flèche noire */}
-                  <svg className="w-3.5 h-3.5 text-black relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </a>
+              </ContactButton>
             </div>
 
             {/* Note sous le bouton */}
-            <p className="mt-3 text-xs text-gray-400">
+            <p className="mt-3 text-[16px] text-gray-400">
               Pas de contrainte, que des solutions.
             </p>
           </div>
@@ -79,9 +64,9 @@ export default function Hero() {
             <div className="absolute top-0 right-0 bg-white rounded-2xl shadow-lg p-4 w-52 animate-float-1 hover:animation-pause">
               <div className="flex items-center gap-2 mb-2">
                 <img src="https://i.pravatar.cc/40?img=5" alt="" className="w-10 h-10 rounded-full" />
-                <span className="font-medium text-gray-900 text-sm">@tomas</span>
+                <span className="font-medium text-gray-900 text-[16px]">@tomas</span>
               </div>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-[16px]">
                 Un site moderne, simple et efficace
               </p>
             </div>
@@ -90,9 +75,9 @@ export default function Hero() {
             <div className="absolute top-32 right-6 bg-white rounded-2xl shadow-lg p-4 w-56 animate-float-2 hover:animation-pause">
               <div className="flex items-center gap-2 mb-2">
                 <img src="https://i.pravatar.cc/40?img=12" alt="" className="w-10 h-10 rounded-full" />
-                <span className="font-medium text-gray-900 text-sm">@mark_locus</span>
+                <span className="font-medium text-gray-900 text-[16px]">@mark_locus</span>
               </div>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-[16px]">
                 Plus de clients depuis la refonte.
               </p>
             </div>
@@ -101,7 +86,7 @@ export default function Hero() {
       </div>
 
       {/* Marquee / Bandeau défilant */}
-      <div className="mt-0 flex justify-center">
+      <div className="mt-12 flex justify-center">
         <div className="relative max-w-4xl w-full mx-auto">
           {/* Fade gauche */}
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
@@ -110,12 +95,12 @@ export default function Hero() {
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
           
           {/* Marquee content */}
-          <div className="overflow-hidden py-4">
+          <div className="overflow-hidden py-2">
             <div className="flex animate-marquee gap-3">
-              {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
+              {[...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 bg-gray-900 text-white px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap"
+                  className="flex-shrink-0 h-[39px] flex items-center bg-gray-900 text-white px-4 rounded-full text-[16px] font-medium whitespace-nowrap"
                 >
                   {item}
                 </div>

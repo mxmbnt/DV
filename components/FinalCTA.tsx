@@ -10,19 +10,19 @@ export default function FinalCTA() {
           <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary-400/20 rounded-full blur-3xl" />
 
           <div className="relative">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6">
+            <h2 className="text-[48px] font-semibold text-white mb-6">
               Votre futur site commence ici.
             </h2>
-            <p className="text-lg text-white/80 max-w-xl mx-auto mb-10">
+            <p className="text-[18px] text-white/80 max-w-xl mx-auto mb-10">
               Prêt à transformer votre présence en ligne ? Réservez un appel découverte gratuit.
             </p>
             <a
               href="mailto:contact@digitalvision.fr"
-              className="inline-flex items-center gap-2 bg-white text-black font-medium px-8 py-4 rounded-full hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-black text-[16px] font-medium px-8 py-4 rounded-full hover:bg-gray-100 transition-colors"
             >
               Réserver un appel →
             </a>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-white/60">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-[16px] text-white/60">
               <span className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={plusJakartaSans.variable}>
-      <body className="min-h-screen bg-white font-sans grid-background">
+      <body className="min-h-screen bg-[#FCFCFC] font-sans grid-background">
         {children}
       </body>
     </html>
