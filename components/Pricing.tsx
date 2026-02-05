@@ -35,7 +35,7 @@ export default function Pricing() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Carte Starter */}
           <div className="rounded-2xl bg-[#FFFFFF] p-6 md:p-8 flex flex-col shadow-lg">
-            <div className="rounded-xl bg-[#FCFCFC] p-5 md:p-6 mb-6">
+            <div className="rounded-xl bg-[#FCFCFC] p-5 md:p-6 mb-6 border" style={{ borderColor: '#E6E6E6' }}>
               <h3 className="text-[18px] font-semibold text-black mb-2">Starter</h3>
               <div className="flex items-baseline gap-1 mb-1">
                 <span className="text-[48px] font-bold text-black">75€</span>
@@ -64,11 +64,11 @@ export default function Pricing() {
           {/* Carte Maintenance */}
           <div className="rounded-2xl bg-[#FFFFFF] p-6 md:p-8 flex flex-col relative shadow-lg">
             <div className="absolute top-4 right-4">
-              <span className="bg-primary-500 text-white text-[16px] font-medium px-3 py-1.5 rounded-lg">
+              <span className="bg-primary-500 text-white text-[16px] font-medium px-3 py-1.5 rounded-full">
                 Populaire
               </span>
             </div>
-            <div className="rounded-xl bg-[#FCFCFC] p-5 md:p-6 mb-6">
+            <div className="rounded-xl bg-[#FCFCFC] p-5 md:p-6 mb-6 border" style={{ borderColor: '#E6E6E6' }}>
               <h3 className="text-[18px] font-semibold text-black mb-2">Maintenance</h3>
               <div className="flex items-baseline gap-1 mb-1">
                 <span className="text-[48px] font-bold text-black">49€</span>
@@ -109,7 +109,7 @@ export default function Pricing() {
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-center w-full">
               {/* Gauche : carte avec titre, prix, description et bouton à l’intérieur */}
               <div>
-                <div className="rounded-2xl bg-[#1a1a1a] w-[440px] h-[277px] py-5 px-3 md:py-6 md:px-4 flex flex-col">
+                <div className="rounded-2xl bg-[#1a1a1a] w-[440px] h-[277px] py-5 px-3 md:py-6 md:px-4 flex flex-col border" style={{ borderColor: 'rgba(230, 230, 230, 0.1)' }}>
                   <h3 className="text-[16px] font-semibold text-gray-400 mb-2">Custom</h3>
                   <div className="flex items-baseline gap-1 mb-1">
                     <span className="text-[48px] font-bold text-white">Sur devis</span>

@@ -16,8 +16,9 @@ export default function ContactButton({
   const isTight = large && tightRight
   return (
     <a
-      href="#contact"
-      className={`group inline-flex items-center justify-center gap-2 font-medium rounded-full transition-colors whitespace-nowrap ${light ? "bg-white text-[#171717] hover:bg-gray-100" : "bg-black text-white hover:bg-gray-800"} ${large ? "text-[19px] gap-[10px] pl-5 " + (isTight ? "pr-0" : "pr-2") : "text-sm"} ${className ?? ""}`}
+      href="/contact"
+      className={`group inline-flex items-center justify-center gap-2 font-medium rounded-full transition-colors whitespace-nowrap ${light ? "bg-white text-[#171717] hover:bg-gray-100" : "text-white hover:bg-gray-800"} ${large ? "text-[19px] gap-[10px] pl-5 " + (isTight ? "pr-0" : "pr-2") : "text-sm"} ${className ?? ""}`}
+      style={!light ? { backgroundColor: '#171717' } : {}}
     >
       {children}
       <span
@@ -28,7 +29,7 @@ export default function ContactButton({
         />
         <span
           className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center"
-          style={{ backgroundColor: light ? "#000000" : "#2A00FF" }}
+          style={{ backgroundColor: light ? "#171717" : "#2A00FF" }}
         />
         <svg
           className={`relative z-10 ${large ? "w-5 h-5" : "w-3 h-3"} ${light ? "text-white" : "text-black"}`}

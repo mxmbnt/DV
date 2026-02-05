@@ -15,9 +15,9 @@ export default function Hero() {
   return (
     <section className="pt-20 pb-0 bg-transparent relative overflow-hidden">
       <div className="container-main relative">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 pt-8 max-w-5xl mx-auto">
-          {/* Colonne gauche */}
-          <div className="max-w-xl text-center lg:text-left">
+        <div className="flex flex-col items-center justify-center pt-8 max-w-4xl mx-auto">
+          {/* Contenu principal */}
+          <div className="max-w-3xl text-center">
             {/* Badge confiance */}
             <div className="inline-flex items-center gap-2 bg-white rounded-full px-3 py-1.5 mb-6 shadow-sm">
               <div className="flex -space-x-1.5">
@@ -56,31 +56,6 @@ export default function Hero() {
             <p className="mt-3 text-[16px] text-gray-400">
               Pas de contrainte, que des solutions.
             </p>
-          </div>
-
-          {/* Colonne droite - Cartes témoignages flottantes */}
-          <div className="relative w-64 h-64 hidden lg:block flex-shrink-0">
-            {/* Carte témoignage 1 - Animation flottement 1 */}
-            <div className="absolute top-0 right-0 bg-white rounded-2xl shadow-lg p-4 w-52 animate-float-1 hover:animation-pause">
-              <div className="flex items-center gap-2 mb-2">
-                <img src="https://i.pravatar.cc/40?img=5" alt="" className="w-10 h-10 rounded-full" />
-                <span className="font-medium text-gray-900 text-[16px]">@tomas</span>
-              </div>
-              <p className="text-gray-600 text-[16px]">
-                Un site moderne, simple et efficace
-              </p>
-            </div>
-
-            {/* Carte témoignage 2 - Animation flottement 2 */}
-            <div className="absolute top-32 right-6 bg-white rounded-2xl shadow-lg p-4 w-56 animate-float-2 hover:animation-pause">
-              <div className="flex items-center gap-2 mb-2">
-                <img src="https://i.pravatar.cc/40?img=12" alt="" className="w-10 h-10 rounded-full" />
-                <span className="font-medium text-gray-900 text-[16px]">@mark_locus</span>
-              </div>
-              <p className="text-gray-600 text-[16px]">
-                Plus de clients depuis la refonte.
-              </p>
-            </div>
           </div>
         </div>
       </div>

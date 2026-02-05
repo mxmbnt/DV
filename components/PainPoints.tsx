@@ -44,7 +44,7 @@ export default function PainPoints() {
             {/* Colonne 1 : titre au-dessus + mini card grise */}
             <div className="flex flex-col gap-4">
               <h3 className="text-[16px] font-semibold text-gray-900 text-center">Vos problèmes</h3>
-              <div className="rounded-xl bg-[#F5F5F5] p-6 md:p-8 flex-1">
+              <div className="rounded-xl bg-[#F5F5F5] p-6 md:p-8 flex-1 border" style={{ borderColor: '#E6E6E6' }}>
                 <ul className="space-y-5">
                   {problems.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">

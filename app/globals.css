@@ -11,6 +11,16 @@
     @apply bg-white text-gray-900 antialiased;
     font-family: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
   }
+
+  /* Cacher la scrollbar sur tous les navigateurs */
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE et Edge */
+  }
+
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;

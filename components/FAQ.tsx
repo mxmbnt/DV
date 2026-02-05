@@ -3,6 +3,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Particles } from './Particles'
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
@@ -40,7 +41,7 @@ export default function FAQ() {
               <span className="text-primary-500 animate-spin-slow inline-block">✦</span>
               <span className="text-[16px] text-gray-700">FAQ</span>
             </div>
-            <h2 className="text-[48px] font-semibold text-black mb-4">
+            <h2 className="text-[48px] font-semibold text-black mb-4 leading-tight">
               Vos questions,
               <br />
               nos réponses
@@ -48,12 +49,6 @@ export default function FAQ() {
             <p className="text-[18px] text-gray-500 mb-8">
               Tout ce que vous devez savoir avant de démarrer.
             </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-black text-white text-[16px] font-medium px-6 py-3 rounded-full hover:bg-gray-800 transition-colors"
-            >
-              Une autre question ? →
-            </a>
           </div>
 
           {/* Droite - Accordéon */}
@@ -61,15 +56,25 @@ export default function FAQ() {
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className="border border-gray-200 rounded-xl overflow-hidden bg-white"
+                className={`border rounded-xl overflow-hidden transition-colors ${
+                  open === i ? 'border-gray-200 bg-white' : 'border-gray-200 bg-white'
+                }`}
+                style={open === i ? { borderColor: '#171717', backgroundColor: '#171717' } : {}}
               >
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left"
+                  className={`w-full flex items-center justify-between p-5 text-left transition-colors ${
+                    open === i ? '' : 'bg-white'
+                  }`}
+                  style={open === i ? { backgroundColor: '#171717' } : {}}
                 >
-                  <span className="text-[16px] font-medium text-black pr-4">{faq.q}</span>
+                  <span className={`text-[16px] font-bold pr-4 ${open === i ? 'text-white' : 'text-black'}`}>
+                    {faq.q}
+                  </span>
                   <svg
-                    className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform ${open === i ? 'rotate-180' : ''}`}
+                    className={`w-5 h-5 flex-shrink-0 transition-transform ${
+                      open === i ? 'rotate-180 text-white' : 'text-gray-500'
+                    }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -78,7 +83,17 @@ export default function FAQ() {
                   </svg>
                 </button>
                 <div className={`overflow-hidden transition-all duration-200 ${open === i ? 'max-h-40' : 'max-h-0'}`}>
-                  <p className="px-5 pb-5 text-[16px] text-gray-600">{faq.a}</p>
+                  {open === i && (
+                    <div className="relative px-5 pb-5" style={{ backgroundColor: '#171717' }}>
+                      <Particles
+                        className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none"
+                        quantity={100}
+                        color="#ffffff"
+                        staticity={50}
+                      />
+                      <p className="relative z-10 text-[16px] font-bold text-white">{faq.a}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

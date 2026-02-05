@@ -1,5 +1,7 @@
 // Navbar - Navigation exacte de la maquette
 
+'use client'
+
 export default function Navbar() {
   return (
     <header className="fixed top-2 left-0 right-0 z-50 mx-auto max-w-6xl px-4">
@@ -26,8 +28,11 @@ export default function Navbar() {
 
           {/* CTA Contact avec même style que Demandez un devis */}
           <a
-            href="#contact"
-            className="group inline-flex items-center justify-center gap-2 bg-black text-white text-[16px] font-medium w-[140px] h-[55px] pl-5 pr-2 rounded-full hover:bg-gray-800 transition-colors"
+            href="/contact"
+            className="group inline-flex items-center justify-center gap-2 text-white text-[16px] font-medium w-[140px] h-[55px] pl-5 pr-2 rounded-full transition-colors"
+            style={{ backgroundColor: '#171717' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#2A2A2A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#171717')}
           >
             Contact
             <span className="relative w-[40px] h-[40px] flex-shrink-0 rounded-full flex items-center justify-center overflow-hidden">
