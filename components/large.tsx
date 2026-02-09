@@ -5,6 +5,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import Glow from "@/components/ui/glow"
 import { Section } from "@/components/ui/section"
+import ContactButton from "@/components/ContactButton"
 import {
   Carousel,
   CarouselContent,
@@ -67,13 +68,17 @@ export default function CarouselLarge({
             {description}
           </p>
         </div>
-        <Carousel
-          opts={{ align: "start", startIndex: 0 }}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
+        <div className="relative w-full">
+          {/* Fade à droite pour masquer complètement les cartes suivantes */}
+          <div className="absolute right-0 top-0 bottom-[32px] w-[400px] bg-gradient-to-l from-[#FCFCFC] from-60% via-[#FCFCFC]/98 via-80% to-transparent z-20 pointer-events-none" />
+          
+          <Carousel
+            opts={{ align: "start", startIndex: 0 }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
             {slides.map((slide, index) => (
-              <CarouselItem key={index} className="flex basis-full sm:basis-2/3 pl-4">
+              <CarouselItem key={index} className="flex basis-full pl-4">
                 <Slide
                   className="grow cursor-pointer"
                   onClick={() => toggleSlide(index)}
@@ -101,17 +106,31 @@ export default function CarouselLarge({
                     </SlideTitle>
                   </SlideContent>
                   <SlideExpandedContent isExpanded={expandedSlides[index]}>
+                    <div className="mb-4">
+                      <div className="text-sm font-medium text-gray-600 mb-2">
+                        {slide.tagline}
+                      </div>
+                      <div className="text-2xl font-bold text-black mb-3">
+                        {slide.title}
+                      </div>
+                    </div>
                     {slide.description}
                   </SlideExpandedContent>
                 </Slide>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="mt-8 flex justify-start gap-3">
-            <CarouselPrevious className="static translate-y-0" />
-            <CarouselNext className="static translate-y-0" />
+          <div className="mt-8 flex justify-between items-center">
+            <div className="flex gap-3">
+              <CarouselPrevious className="static translate-y-0" />
+              <CarouselNext className="static translate-y-0" />
+            </div>
+            <ContactButton large>
+              Voir plus
+            </ContactButton>
           </div>
-        </Carousel>
+          </Carousel>
+        </div>
       </div>
     </Section>
   )
