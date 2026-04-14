@@ -1,8 +1,15 @@
-// Testimonials - Témoignages clients (marquee 2 lignes à gauche, carte CTA à droite)
+// Testimonials - Témoignages clients (carousel avec boutons à gauche, carte CTA à droite)
+"use client"
 
 import ContactButton from "@/components/ContactButton"
 import { Particles } from "@/components/Particles"
-import Marquee from "@/components/ui/marquee"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import SocialProofItem from "@/components/ui/social-proof-item"
 
 const socialProofItems = [
@@ -38,14 +45,7 @@ const socialProofItems = [
   },
 ]
 
-const ROWS_COUNT = 3
-
 export default function Testimonials() {
-  const rowSize = Math.ceil(socialProofItems.length / ROWS_COUNT)
-  const rows = Array.from({ length: ROWS_COUNT }, (_, i) =>
-    socialProofItems.slice(i * rowSize, (i + 1) * rowSize)
-  ).filter((row) => row.length > 0)
-
   return (
     <section className="py-24 bg-transparent">
       <div className="container-main">
@@ -67,26 +67,28 @@ export default function Testimonials() {
 
         {/* Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Marquee multi-lignes (témoignages qui défilent) - même hauteur que la card à droite */}
-          <div className="lg:col-span-3 relative flex min-h-[451px] flex-col overflow-hidden">
-            <div className="relative flex w-full flex-col justify-center gap-4 overflow-hidden py-2">
-              {rows.map((rowItems, i) => (
-                <Marquee
-                  key={i}
-                  reverse={i % 2 === 1}
-                  pauseOnHover
-                  className="[--duration:20s] [--gap:2.5rem]"
-                >
-                  {rowItems.map((item) => (
-                    <div key={item.username} className="mr-6">
-                      <SocialProofItem {...item} />
-                    </div>
-                  ))}
-                </Marquee>
-              ))}
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white to-transparent" aria-hidden />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white to-transparent" aria-hidden />
-            </div>
+          {/* Carousel avec boutons - même hauteur que la card à droite */}
+          <div className="lg:col-span-3 relative flex h-[451px] flex-col justify-center">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+                slidesToScroll: 2,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {socialProofItems.map((item, index) => (
+                  <CarouselItem key={index} className="pl-4 basis-1/2">
+                    <SocialProofItem {...item} className="h-full" />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center gap-4 mt-6">
+                <CarouselPrevious className="static translate-y-0 translate-x-0" />
+                <CarouselNext className="static translate-y-0 translate-x-0" />
+              </div>
+            </Carousel>
           </div>
 
           {/* CTA Card - style carte découverte avec particules et bouton marquee */}
