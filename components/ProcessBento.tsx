@@ -21,8 +21,8 @@ export type ProcessStep = {
 
 const ILLUSTRATIONS = [
   ContactIllustration,
-  DevisIllustration,
   DesignIllustration,
+  DevisIllustration,
   DevLivraisonIllustration,
 ]
 
@@ -36,42 +36,37 @@ function StepVisual({
   illustration: React.ComponentType
 }) {
   return (
-    <div className="relative w-full h-full min-h-[200px] md:min-h-[220px] bg-gray-50">
+    <div className="relative w-full h-full min-h-[200px] md:min-h-[220px] bg-white">
+      <div className="absolute inset-3 dot-background rounded-xl pointer-events-none" />
       <div className="absolute inset-0 flex items-center justify-center overflow-auto">
         <Illustration />
       </div>
-      <div
-        className={`absolute top-0 bottom-0 w-12 md:w-16 pointer-events-none z-10 ${
-          fadeSide === "left" ? "left-0" : "right-0"
-        }`}
-        style={{
-          background:
-            fadeSide === "left"
-              ? "radial-gradient(ellipse 80% 120% at 0% 50%, rgba(42, 0, 255, 0.35) 0%, transparent 70%)"
-              : "radial-gradient(ellipse 80% 120% at 100% 50%, rgba(42, 0, 255, 0.35) 0%, transparent 70%)",
-        }}
-        aria-hidden
-      />
     </div>
   )
 }
 
+// Ordre d'affichage : 02, 01, 03, 04
+// Ligne 1 : 02 (large) | 01 (réduit)
+// Ligne 2 : 03 (réduit) | 04 (large)
+const RENDER_ORDER = [0, 1, 2, 3]
+
 const TILE_SIZES = [
-  "col-span-12 md:flex md:flex-row",
-  "col-span-12 md:col-span-6 lg:col-span-5",
-  "col-span-12 md:col-span-6 lg:col-span-7",
-  "col-span-12 md:flex md:flex-row",
+  "col-span-12 md:col-span-6",  // 01
+  "col-span-12 md:col-span-6",  // 02
+  "col-span-12 md:col-span-6",  // 03
+  "col-span-12 md:col-span-6",  // 04
 ] as const
 
 const FADE_SIDES: ("left" | "right")[] = ["right", "left", "right", "left"]
 
 export default function ProcessBento({ steps }: { steps: ProcessStep[] }) {
   return (
-    <div className="grid grid-cols-12 gap-4 w-full">
-      {steps.slice(0, 4).map((step, index) => {
-        const size = TILE_SIZES[index]
-        const fadeSide = FADE_SIDES[index]
-        const Illustration = ILLUSTRATIONS[index]
+    <div className="grid grid-cols-12 gap-4 w-full max-w-[900px] mx-auto">
+      {RENDER_ORDER.map((stepIndex) => {
+        const step = steps[stepIndex]
+        const size = TILE_SIZES[stepIndex]
+        const fadeSide = FADE_SIDES[stepIndex]
+        const Illustration = ILLUSTRATIONS[stepIndex]
         const visual = (
           <StepVisual
             title={step.title}
@@ -80,50 +75,17 @@ export default function ProcessBento({ steps }: { steps: ProcessStep[] }) {
           />
         )
 
-        if (index === 0) {
-          return (
-            <Card key={index} className={size}>
-              <CardContent className="grow basis-0 md:justify-end md:flex md:flex-col">
-                <span className="text-sm font-semibold text-primary-500 tabular-nums">
-                  {step.num}
-                </span>
-                <CardTitle className="mt-1 mb-2">{step.title}</CardTitle>
-                <CardDescription>{step.subtitle}</CardDescription>
-              </CardContent>
-              <CardVisual className="min-h-[200px] md:min-h-[240px] md:flex-1">
-                {visual}
-              </CardVisual>
-            </Card>
-          )
-        }
-
-        if (index === 3) {
-          return (
-            <Card key={index} className={size}>
-              <CardContent className="grow basis-0 md:justify-end md:flex md:flex-col">
-                <span className="text-sm font-semibold text-primary-500 tabular-nums">
-                  {step.num}
-                </span>
-                <CardTitle className="mt-1 mb-2">{step.title}</CardTitle>
-                <CardDescription>{step.subtitle}</CardDescription>
-              </CardContent>
-              <CardVisual className="min-h-[200px] md:min-h-[240px] md:flex-1">
-                {visual}
-              </CardVisual>
-            </Card>
-          )
-        }
-
         return (
-          <Card key={index} className={size}>
+          <Card key={stepIndex} className={size}>
             <CardVisual className="min-h-[200px] md:min-h-[220px]">
+              {/* Badge numéro en haut à gauche */}
+              <div className="absolute top-3 left-3 z-20 bg-white border border-gray-200 rounded-2xl px-3 py-1.5 shadow-sm">
+                <span className="text-sm font-semibold text-primary-500 tabular-nums">{step.num}</span>
+              </div>
               {visual}
             </CardVisual>
             <CardContent>
-              <span className="text-sm font-semibold text-primary-500 tabular-nums">
-                {step.num}
-              </span>
-              <CardTitle className="mt-1 mb-2">{step.title}</CardTitle>
+              <CardTitle className="mb-2">{step.title}</CardTitle>
               <CardDescription>{step.subtitle}</CardDescription>
             </CardContent>
           </Card>

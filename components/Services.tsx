@@ -1,6 +1,7 @@
 // Services - Grille de services avec thème sombre
 
 import { Particles } from "@/components/Particles"
+import WordReveal from "@/components/WordReveal"
 
 const IconMonitor = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,7 +77,7 @@ export default function Services() {
       features: [
         { icon: IconShield, text: 'Sécurisé' },
         { icon: IconStar, text: 'Fiable' },
-        { icon: IconChat, text: 'Support 24/7' },
+        { icon: IconChat, text: 'Support' },
       ],
     },
   ]
@@ -94,14 +95,14 @@ export default function Services() {
 
         {/* Titre */}
         <h2 className="text-[48px] font-semibold text-center text-black mb-4">
-          Nos services
+          <WordReveal>{"Nos services"}</WordReveal>
         </h2>
         <p className="text-center text-[18px] text-gray-500 mb-12 max-w-lg mx-auto">
           Nous créons des solutions web modernes qui renforcent votre visibilité et valorisent votre entreprise en ligne.
         </p>
 
         {/* Grande carte principale */}
-        <div className="mb-6 rounded-3xl overflow-hidden bg-gray-900 p-8 md:p-10 relative">
+        <div className="mb-2 rounded-3xl overflow-hidden bg-gray-900 p-8 md:p-10 relative">
           <Particles 
             className="absolute bottom-0 left-0 right-0 h-48"
             quantity={100}
@@ -132,7 +133,7 @@ export default function Services() {
         </div>
 
         {/* Grille 2 colonnes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-2">
           {services.map((service, i) => (
             <div 
               key={i} 

@@ -1,97 +1,131 @@
 "use client"
 
-import { useState } from 'react'
-import ContactButton from '@/components/ContactButton'
+import WordReveal from "@/components/WordReveal"
 
-const portfolioSlides = [
+const projects = [
   {
-    tagline: "Social Media · Stratégie",
-    title: "Gestion des réseaux sociaux pour entreprise tech",
+    tagline: 'Landing Page · Tech / IA',
+    title: 'Générez des missions techniques pour développeurs avec l\'IA',
     description:
-      "Tomate, entreprise de delivery, voulait refaire son service. Nous avons proposé une refonte complète du concept social et du contenu. Stratégie marketing, création de contenu et suivi des performances ont permis d’augmenter l’engagement de plus de 150% et de dépasser le million d’impressions.",
+      'Plateforme SaaS de mise en relation entre développeurs freelance et entreprises tech. Landing page haute conversion avec démonstration interactive du produit, témoignages clients et tunnel d\'inscription optimisé. Résultat : +340% de sign-ups en 6 semaines.',
+    stats: [{ value: '+340%', label: 'sign-ups' }, { value: '6 sem.', label: 'livraison' }],
     image: (
-      <div className="h-full min-h-[280px] w-full bg-[#1a1a2e] flex items-center justify-center relative">
-        <div className="text-center text-white p-6">
-          <div className="text-sm text-primary-300 mb-2">Gestion des réseaux</div>
-          <div className="text-2xl font-semibold">Stratégie marketing</div>
-          <div className="text-4xl font-bold text-primary-300 mt-4">+1M</div>
-          <div className="text-sm text-gray-400">impressions</div>
+      <div className="h-full w-full bg-[#0d0d1a] flex flex-col relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="relative z-10 flex flex-col items-center justify-center flex-1 p-8 text-center">
+          <div className="inline-flex items-center gap-2 bg-[#2A00FF]/20 border border-[#2A00FF]/40 rounded-full px-4 py-1.5 mb-5">
+            <span className="text-[#7B5FFF] text-[13px] font-medium">Propulsé par l'IA</span>
+          </div>
+          <h3 className="text-white text-[26px] font-bold leading-tight mb-5 max-w-xs">
+            Générez des <span className="text-[#7B5FFF]">missions techniques</span> pour développeurs avec l'IA
+          </h3>
+          <div className="inline-flex items-center justify-between gap-2 text-white text-[15px] font-medium h-[46px] pl-5 pr-2 rounded-full" style={{ backgroundColor: '#2A00FF' }}>
+            Commencer gratuitement
+            <span className="relative w-[32px] h-[32px] flex-shrink-0 rounded-full bg-white flex items-center justify-center">
+              <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
         </div>
-        <div className="absolute bottom-4 left-4 rounded-xl bg-white px-4 py-2.5 shadow-lg">
-          <div className="text-lg font-bold text-primary-600">+150%</div>
-          <div className="text-xs font-medium text-gray-600">engagement</div>
+        <div className="relative z-10 flex items-center justify-center gap-6 border-t border-white/10 px-8 py-3">
+          {['GitHub', 'Jira', 'Slack', 'Notion'].map((tool) => (
+            <span key={tool} className="text-white/40 text-[12px] font-medium">{tool}</span>
+          ))}
         </div>
       </div>
     ),
   },
   {
-    tagline: "Corporate · Webdesign",
-    title: "Redspher | Site corporate premium",
+    tagline: 'Site Vitrine · Services à domicile',
+    title: 'Nettoyage & Jardinage à domicile pour votre tranquillité',
     description:
-      "Pour Redspher, leader de la logistique, nous avons incarné un projet ambitieux : créer leur nouveau site corporate et moderniser leur présence digitale. Nouvelle identité web, plus de 40 pages, design premium et expérience utilisateur soignée.",
+      'Site vitrine complet pour une entreprise de services à domicile. Présentation claire des prestations, système de devis en ligne, galerie photos avant/après et intégration Google Maps. Le site a multiplié par 3 les demandes de devis dès le premier mois.',
+    stats: [{ value: 'x3', label: 'devis reçus' }, { value: '1 mois', label: 'pour les résultats' }],
     image: (
-      <div className="h-full min-h-[280px] w-full bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center relative">
-        <div className="text-center text-white p-6">
-          <div className="text-3xl font-bold">Redspher</div>
-          <div className="text-sm text-primary-200 mt-2">Site corporate premium</div>
+      <div className="h-full w-full bg-gradient-to-br from-[#0eb69a] to-[#0a9982] flex flex-col relative overflow-hidden">
+        <div className="relative z-10 flex flex-col items-start justify-center flex-1 p-8 gap-4">
+          <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-3 py-1">
+            <span className="text-white text-[12px] font-medium">Services Pro</span>
+          </div>
+          <h3 className="text-white text-[26px] font-bold leading-tight">
+            Nettoyage &<br />Jardinage à domicile<br />pour votre <span className="underline decoration-white/50">tranquillité</span>
+          </h3>
+          <div className="inline-flex items-center justify-between gap-2 text-[#0eb69a] text-[14px] font-medium h-[42px] pl-4 pr-1.5 rounded-full bg-white">
+            Demander un devis
+            <span className="w-[30px] h-[30px] rounded-full bg-[#0eb69a] flex items-center justify-center">
+              <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
         </div>
-        <div className="absolute bottom-4 right-4 rounded-xl bg-white px-4 py-2.5 shadow-lg">
-          <div className="text-lg font-bold text-primary-600">40+</div>
-          <div className="text-xs font-medium text-gray-600">pages créées</div>
+        <div className="relative z-10 flex items-center gap-2 px-8 pb-5 flex-wrap">
+          {['Nettoyage', 'Jardinage', 'Vitrerie'].map((b) => (
+            <span key={b} className="bg-white/20 text-white text-[12px] font-medium px-3 py-1 rounded-full border border-white/30">{b}</span>
+          ))}
         </div>
       </div>
     ),
   },
   {
-    tagline: "E-commerce · Development",
-    title: "TechStore | Boutique en ligne moderne",
+    tagline: 'Corporate · Logistique',
+    title: 'Redspher | Nouveau site corporate premium',
     description:
-      "Création d'une plateforme e-commerce complète pour TechStore, spécialiste en électronique. Interface intuitive, système de paiement sécurisé, gestion des stocks en temps réel et design responsive. Le site a généré plus de 500 commandes en un mois.",
+      'Refonte complète du site corporate de Redspher, leader européen de la logistique express. Nouvelle identité web, plus de 40 pages, design premium épuré et expérience utilisateur soignée. Accompagnement de 3 mois, de la stratégie à la mise en ligne.',
+    stats: [{ value: '40+', label: 'pages' }, { value: '3 mois', label: 'de projet' }],
     image: (
-      <div className="h-full min-h-[280px] w-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative">
-        <div className="text-center text-white p-6">
-          <div className="text-3xl font-bold">TechStore</div>
-          <div className="text-sm text-emerald-100 mt-2">E-commerce moderne</div>
-        </div>
-        <div className="absolute top-4 left-4 rounded-xl bg-white px-4 py-2.5 shadow-lg">
-          <div className="text-lg font-bold text-emerald-600">500+</div>
-          <div className="text-xs font-medium text-gray-600">commandes/mois</div>
+      <div className="h-full w-full bg-gradient-to-br from-[#2A00FF] to-[#1a00cc] flex flex-col relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[250px] h-[250px] rounded-full bg-white/5 -translate-y-1/2 translate-x-1/2" />
+        <div className="relative z-10 flex flex-col items-start justify-center flex-1 p-8">
+          <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-3 py-1 mb-3">
+            <span className="text-white/80 text-[12px] font-medium">Corporate · Premium</span>
+          </div>
+          <h3 className="text-white text-[36px] font-bold mb-1">Redspher</h3>
+          <p className="text-white/60 text-[14px] mb-5">Leader européen de la logistique express</p>
+          <div className="flex gap-4">
+            <div className="bg-white/10 rounded-2xl px-4 py-2.5 border border-white/20">
+              <div className="text-white text-[20px] font-bold">40+</div>
+              <div className="text-white/60 text-[12px]">pages créées</div>
+            </div>
+            <div className="bg-white/10 rounded-2xl px-4 py-2.5 border border-white/20">
+              <div className="text-white text-[20px] font-bold">3</div>
+              <div className="text-white/60 text-[12px]">mois de projet</div>
+            </div>
+          </div>
         </div>
       </div>
     ),
   },
   {
-    tagline: "Landing Page · Design",
-    title: "FitnessPro | Page de conversion",
+    tagline: 'E-commerce · Électronique',
+    title: 'TechStore | Boutique en ligne haute performance',
     description:
-      "Landing page haute performance pour FitnessPro, salle de sport premium. Design épuré, sections optimisées pour la conversion, formulaire de contact intelligent et animations engageantes. Taux de conversion augmenté de 230% en 3 mois.",
+      'Création d\'une plateforme e-commerce complète pour TechStore. Interface intuitive, paiement sécurisé multi-devises, gestion des stocks en temps réel et design 100% responsive. Plus de 500 commandes traitées dès le premier mois de lancement.',
+    stats: [{ value: '500+', label: 'commandes/mois' }, { value: '99%', label: 'uptime' }],
     image: (
-      <div className="h-full min-h-[280px] w-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center relative">
-        <div className="text-center text-white p-6">
-          <div className="text-3xl font-bold">FitnessPro</div>
-          <div className="text-sm text-orange-100 mt-2">Landing page optimisée</div>
+      <div className="h-full w-full bg-gradient-to-br from-emerald-500 to-teal-600 flex flex-col relative overflow-hidden">
+        <div className="relative z-10 flex flex-col items-center justify-center flex-1 p-8 text-center">
+          <h3 className="text-white text-[36px] font-bold mb-1">TechStore</h3>
+          <p className="text-emerald-100 text-[14px] mb-6">Votre boutique tech en ligne</p>
+          <div className="grid grid-cols-3 gap-3 w-full max-w-xs">
+            {['MacBook Pro', 'iPhone 15', 'AirPods Pro'].map((p) => (
+              <div key={p} className="bg-white/20 backdrop-blur-sm rounded-xl p-2.5 border border-white/30">
+                <div className="w-7 h-7 bg-white/30 rounded-lg mx-auto mb-1.5" />
+                <p className="text-white text-[10px] font-medium text-center">{p}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="absolute bottom-4 left-4 rounded-xl bg-white px-4 py-2.5 shadow-lg">
-          <div className="text-lg font-bold text-orange-600">+230%</div>
-          <div className="text-xs font-medium text-gray-600">conversion</div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    tagline: "Portfolio · Créatif",
-    title: "Studio Artis | Portfolio photographe",
-    description:
-      "Portfolio immersif pour Studio Artis, photographe professionnel. Galerie photos interactive, expérience visuelle unique, système de catégories avancé et intégration réseaux sociaux. Le site a attiré plus de 50 nouveaux clients en 2 mois.",
-    image: (
-      <div className="h-full min-h-[280px] w-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative">
-        <div className="text-center text-white p-6">
-          <div className="text-3xl font-bold">Studio Artis</div>
-          <div className="text-sm text-purple-100 mt-2">Portfolio créatif</div>
-        </div>
-        <div className="absolute top-4 right-4 rounded-xl bg-white px-4 py-2.5 shadow-lg">
-          <div className="text-lg font-bold text-purple-600">50+</div>
-          <div className="text-xs font-medium text-gray-600">nouveaux clients</div>
+        <div className="relative z-10 flex justify-between items-center px-8 pb-5">
+          <div className="bg-white rounded-xl px-3 py-2 shadow-lg">
+            <div className="text-base font-bold text-emerald-600">500+</div>
+            <div className="text-[11px] font-medium text-gray-600">commandes/mois</div>
+          </div>
+          <div className="bg-white/20 rounded-xl px-3 py-2 border border-white/30">
+            <div className="text-base font-bold text-white">4.9 ★</div>
+            <div className="text-[11px] text-white/70">satisfaction</div>
+          </div>
         </div>
       </div>
     ),
@@ -99,8 +133,6 @@ const portfolioSlides = [
 ]
 
 export default function ProjectsPreview() {
-  const [expandedCard, setExpandedCard] = useState<number | null>(null)
-
   return (
     <section id="projets" className="py-24 bg-transparent">
       <div className="container-main">
@@ -108,10 +140,10 @@ export default function ProjectsPreview() {
         <div className="flex flex-col items-center mb-12">
           <div className="inline-flex items-center gap-2 bg-white rounded-full px-3 py-1.5 shadow-sm mb-6">
             <span className="text-primary-500 animate-spin-slow inline-block">✦</span>
-            <span className="text-[16px] text-gray-700">Portfolio</span>
+            <span className="text-[16px] text-gray-700">Réalisations</span>
           </div>
           <h2 className="text-[48px] font-semibold text-black mb-4 text-center">
-            Un aperçu de nos créations
+            <WordReveal>{"Un aperçu de nos créations"}</WordReveal>
           </h2>
           <p className="text-[18px] text-gray-500 max-w-2xl text-center">
             Découvrez comment nous aidons nos clients à se démarquer avec des créations uniques.
@@ -119,82 +151,56 @@ export default function ProjectsPreview() {
         </div>
 
         {/* Grille 2x2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {portfolioSlides.slice(0, 4).map((project, index) => (
-            <div
-              key={index}
-              className="group relative rounded-2xl overflow-hidden bg-white shadow-lg cursor-pointer transition-all hover:shadow-xl"
-              onClick={() => setExpandedCard(expandedCard === index ? null : index)}
-            >
-              {/* Image */}
-              <div className="h-[280px] overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          {projects.map((project, index) => (
+            <article key={index} className="flex flex-col gap-2">
+              {/* Image card */}
+              <div className="rounded-3xl overflow-hidden h-[280px]">
                 {project.image}
               </div>
 
-              {/* Contenu */}
-              <div className="p-6">
-                <div className="text-sm font-medium text-gray-500 mb-2">
-                  {project.tagline}
-                </div>
-                <h3 className="text-xl font-semibold text-black mb-3">
-                  {project.title}
-                </h3>
-
-                {/* Description dépliable */}
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    expandedCard === index ? 'max-h-96' : 'max-h-0'
-                  }`}
-                >
-                  <p className="text-[16px] text-gray-600 mb-4">
+              {/* Text card */}
+              <div className="rounded-3xl bg-white shadow-sm px-6 py-5 flex flex-col gap-4">
+                <div>
+                  <span className="inline-block text-[13px] font-semibold text-gray-500 mb-2">
+                    {project.tagline}
+                  </span>
+                  <h3 className="text-[20px] font-bold text-black mb-2 leading-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-[14px] text-gray-500 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Bouton + */}
-                <button
-                  className="flex items-center justify-center w-10 h-10 rounded-full transition-all"
-                  style={{ backgroundColor: '#171717' }}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setExpandedCard(expandedCard === index ? null : index)
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#2A2A2A')}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#171717')}
-                >
-                  <svg
-                    className={`w-5 h-5 text-white transition-transform ${expandedCard === index ? 'rotate-45' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
-                </button>
+                {/* Stats */}
+                <div className="flex items-center gap-5">
+                  {project.stats.map((stat, i) => (
+                    <div key={i}>
+                      <div className="text-[20px] font-bold text-black">{stat.value}</div>
+                      <div className="text-[12px] text-gray-500">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {/* Bouton Voir plus */}
         <div className="flex justify-center">
           <a
-            href="/contact"
-            className="group inline-flex items-center justify-center gap-2 text-white text-[16px] font-medium w-[160px] h-[55px] pl-3 pr-0 rounded-full transition-colors"
+            href="/realisations"
+            className="group inline-flex items-center justify-between text-white text-[16px] font-medium w-[155px] h-[55px] pl-5 pr-2 rounded-full transition-colors"
             style={{ backgroundColor: '#171717' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#2A2A2A')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#171717')}
           >
             Voir plus
             <span className="relative w-[40px] h-[40px] flex-shrink-0 rounded-full flex items-center justify-center overflow-hidden">
-              {/* Fond blanc par défaut */}
               <span className="absolute inset-0 bg-white rounded-full" />
-              
-              {/* Fond bleu avec animation splash */}
               <span className="absolute inset-0 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-out origin-center" style={{ backgroundColor: '#2A00FF' }} />
-              
-              {/* Flèche noire */}
-              <svg className="w-5 h-5 text-black relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-black group-hover:text-white transition-colors duration-300 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>

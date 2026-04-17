@@ -78,7 +78,7 @@
 
 @layer components {
   .container-main {
-    @apply mx-auto max-w-[1200px] px-6;
+    @apply mx-auto max-w-[900px] px-6;
   }
 
   /* Bento grid - grille processus */
@@ -101,10 +101,18 @@
 
   /* Grid background pattern - très petit */
   .grid-background {
-    background-image: 
+    background-image:
       linear-gradient(to right, rgba(209, 213, 219, 0.06) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(209, 213, 219, 0.06) 1px, transparent 1px);
     background-size: 12px 12px;
+  }
+
+  /* Dot background pattern */
+  .dot-background {
+    background-image: radial-gradient(circle, rgba(209, 213, 219, 0.45) 0.8px, transparent 0.8px);
+    background-size: 10px 10px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
   }
 }
 
@@ -149,6 +157,23 @@
 
 .animate-float-2 {
   animation: float-vertical-2 8s ease-in-out infinite 1.5s;
+}
+
+/* Animation apparition mot par mot */
+@keyframes word-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-word {
+  display: inline-block;
+  animation: word-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Animation rotation lente pour les étoiles des badges */

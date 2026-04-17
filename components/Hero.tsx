@@ -1,6 +1,7 @@
 // Hero - Section principale
 
 import ContactButton from "@/components/ContactButton"
+import WordReveal from "@/components/WordReveal"
 
 export default function Hero() {
   const marqueeItems = [
@@ -15,7 +16,7 @@ export default function Hero() {
   return (
     <section className="pt-20 pb-0 bg-transparent relative overflow-hidden">
       <div className="container-main relative">
-        <div className="flex flex-col items-center justify-center pt-8 max-w-4xl mx-auto">
+        <div className="flex flex-col items-center justify-center pt-24 max-w-4xl mx-auto">
           {/* Contenu principal */}
           <div className="max-w-3xl text-center">
             {/* Badge confiance */}
@@ -30,12 +31,25 @@ export default function Hero() {
 
             {/* Titre avec logo au même niveau que "attirent" (caché sur mobile) */}
             <h1 className="text-[74px] font-bold text-black leading-tight tracking-tight">
-              Des sites web
+              <WordReveal startIndex={0}>{`Des sites web`}</WordReveal>
               <br />
               <span className="inline-flex flex-wrap items-baseline gap-3 md:gap-6">
-                qui <span style={{ color: '#2A00FF' }}>attirent</span>
-                <span className="hidden md:inline-flex w-10 h-10 md:w-12 md:h-12 rounded-xl items-center justify-center p-2 shrink-0 align-baseline rotate-12 ml-1 md:ml-2" style={{ backgroundColor: '#2A00FF' }}>
-                  <img src="/logos/WEgbRtdISL58zfOFWPbolgMtZU.png" alt="" className="w-full h-full object-contain" />
+                <span className="inline-block overflow-hidden leading-[1.1]">
+                  <span className="animate-word inline-block" style={{ animationDelay: '240ms' }}>
+                    qui
+                  </span>
+                </span>
+                {' '}
+                <span className="inline-block overflow-hidden leading-[1.1]">
+                  <span className="animate-word inline-block" style={{ color: '#2A00FF', animationDelay: '320ms' }}>
+                    attirent
+                  </span>
+                </span>
+                <span
+                  className="animate-word hidden md:inline-flex w-10 h-10 md:w-12 md:h-12 rounded-xl items-center justify-center p-2 shrink-0 align-baseline rotate-12 ml-1 md:ml-2"
+                  style={{ backgroundColor: '#2A00FF', animationDelay: '400ms' }}
+                >
+                  <img src="/logos/logo_blanc.png" alt="" className="w-full h-full object-contain" />
                 </span>
               </span>
             </h1>
@@ -54,7 +68,7 @@ export default function Hero() {
 
             {/* Note sous le bouton */}
             <p className="mt-3 text-[16px] text-gray-400">
-              Pas de contrainte, que des solutions.
+              <WordReveal delay={500}>{"Pas de contrainte, que des solutions."}</WordReveal>
             </p>
           </div>
         </div>

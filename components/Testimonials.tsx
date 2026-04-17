@@ -3,6 +3,7 @@
 
 import ContactButton from "@/components/ContactButton"
 import { Particles } from "@/components/Particles"
+import WordReveal from "@/components/WordReveal"
 import {
   Carousel,
   CarouselContent,
@@ -59,7 +60,7 @@ export default function Testimonials() {
 
         {/* Titre */}
         <h2 className="text-[48px] font-semibold text-center text-black mb-4">
-          Ils parlent de nous
+          <WordReveal>{"Ils parlent de nous"}</WordReveal>
         </h2>
         <p className="text-center text-[18px] text-gray-500 mb-14 max-w-lg mx-auto">
           Ce que disent ceux qui nous ont fait confiance.
@@ -77,7 +78,7 @@ export default function Testimonials() {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-4">
+              <CarouselContent className="-ml-4 pb-4">
                 {socialProofItems.map((item, index) => (
                   <CarouselItem key={index} className="pl-4 basis-1/2">
                     <SocialProofItem {...item} className="h-full" />
@@ -113,9 +114,8 @@ export default function Testimonials() {
                 </h3>
                 {/* Bouton marquee (ContactButton light) */}
                 <ContactButton
-                  className="bg-white text-[#171717] hover:bg-gray-100 w-full max-w-[280px] h-[52px]"
+                  className="bg-white text-[#171717] hover:bg-gray-100 h-[52px]"
                   large
-                  tightRight
                   light
                 >
                   Nos disponibilités
@@ -126,7 +126,7 @@ export default function Testimonials() {
                   contact@digital-vision.fr
                 </a>
                 {/* Badges en marquee défilant avec fade gauche/droite */}
-                <div className="mt-auto pt-6 pb-6 w-full overflow-hidden relative">
+                <div className="mt-auto pt-6 pb-8 w-full overflow-hidden relative">
                   {/* Fade gauche */}
                   <div
                     className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#171717] to-transparent pointer-events-none z-10"

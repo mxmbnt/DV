@@ -1,6 +1,7 @@
 "use client"
 
 import { Particles } from "@/components/Particles"
+import WordReveal from "@/components/WordReveal"
 
 export default function PainPoints() {
   const problems = [
@@ -32,7 +33,7 @@ export default function PainPoints() {
 
         {/* Titre de section */}
         <h2 className="text-[48px] font-semibold text-center text-black mb-4">
-          Ce qui vous freine et ce qu&apos;on résout.
+          <WordReveal>{"Ce qui vous freine et ce qu'on résout."}</WordReveal>
         </h2>
         <p className="text-center text-[18px] text-gray-500 mb-12 max-w-lg mx-auto">
           On comprend vos défis. Voici comment on les transforme en opportunités.

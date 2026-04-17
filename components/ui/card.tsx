@@ -54,7 +54,7 @@ const CardVisual = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("relative flex-1 min-h-[200px] bg-gray-100", className)}
+    className={cn("relative flex-1 min-h-[200px] bg-white", className)}
     {...props}
   />
 ))

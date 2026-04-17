@@ -32,7 +32,7 @@ export default function ContactButton({
           style={{ backgroundColor: light ? "#171717" : "#2A00FF" }}
         />
         <svg
-          className={`relative z-10 ${large ? "w-5 h-5" : "w-3 h-3"} ${light ? "text-white" : "text-black"}`}
+          className={`relative z-10 transition-colors duration-300 ${large ? "w-5 h-5" : "w-3 h-3"} ${light ? "text-white" : "text-black group-hover:text-white"}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

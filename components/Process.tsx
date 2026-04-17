@@ -3,6 +3,7 @@
 "use client"
 
 import ProcessBento from "@/components/ProcessBento"
+import WordReveal from "@/components/WordReveal"
 
 const steps = [
   {
@@ -13,15 +14,15 @@ const steps = [
   },
   {
     num: "02",
-    title: "Devis & Proposition",
-    subtitle: "Transparence sur le planning et le budget.",
-    image: "/process/02-devis-proposition.jpg",
-  },
-  {
-    num: "03",
     title: "Design & Maquettes",
     subtitle: "Conception d'interfaces sur-mesure.",
     image: "/process/03-design-maquettes.jpg",
+  },
+  {
+    num: "03",
+    title: "Devis & Proposition",
+    subtitle: "Transparence sur le planning et le budget.",
+    image: "/process/02-devis-proposition.jpg",
   },
   {
     num: "04",
@@ -43,7 +44,7 @@ export default function Process() {
         </div>
 
         <h2 className="text-[48px] font-semibold text-center text-black mb-4">
-          Notre processus
+          <WordReveal>{"Notre processus"}</WordReveal>
         </h2>
         <p className="text-center text-[18px] text-gray-500 mb-14 max-w-lg mx-auto">
           Un accompagnement clair et structuré, de la première discussion jusqu&apos;à la mise en ligne.

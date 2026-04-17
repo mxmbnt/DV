@@ -2,6 +2,7 @@
 
 import ContactButton from "@/components/ContactButton"
 import { Particles } from "@/components/Particles"
+import WordReveal from "@/components/WordReveal"
 
 const starIcon = (
   <span className="inline-flex flex-shrink-0 w-[18px] h-[18px] items-center justify-center text-primary-500 text-[18px] leading-none" aria-hidden>
@@ -23,7 +24,7 @@ export default function Pricing() {
 
         {/* Titre */}
         <h2 className="text-[48px] font-semibold text-center text-black mb-4">
-          Choisissez votre plan
+          <WordReveal>{"Choisissez votre plan"}</WordReveal>
         </h2>
         <p className="text-center text-[18px] text-gray-500 mb-14 max-w-lg mx-auto">
           Des offres adaptées à vos besoins et budgets. Transparence totale.
@@ -42,7 +43,7 @@ export default function Pricing() {
                 <span className="text-black text-[18px] font-normal">/mois</span>
               </div>
               <p className="text-black text-[16px] mb-6">Pour lancer ton activité en ligne.</p>
-              <ContactButton className="min-w-[280px] w-[280px] h-[60px] whitespace-nowrap" large tightRight>Demandez un devis</ContactButton>
+              <ContactButton className="h-[60px] whitespace-nowrap" large>Demandez un devis</ContactButton>
             </div>
             <p className="text-black font-semibold text-[16px] mb-3">Dans cette offre:</p>
             <ul className="space-y-2.5">
@@ -75,7 +76,7 @@ export default function Pricing() {
                 <span className="text-black text-[18px] font-normal">/mois</span>
               </div>
               <p className="text-black text-[16px] mb-6">Pour garder ton site à jour et performant.</p>
-              <ContactButton className="min-w-[280px] w-[280px] h-[60px] whitespace-nowrap" large tightRight>Demandez un devis</ContactButton>
+              <ContactButton className="h-[60px] whitespace-nowrap" large>Demandez un devis</ContactButton>
             </div>
             <p className="text-black font-semibold text-[16px] mb-3">Dans cette offre:</p>
             <ul className="space-y-2.5">
@@ -116,7 +117,7 @@ export default function Pricing() {
                     <span className="text-gray-400 text-[18px] font-normal">/mois</span>
                   </div>
                   <p className="text-gray-400 text-[16px] mb-6">Pour projets complexes.</p>
-                  <ContactButton className="min-w-[280px] w-[280px] h-[60px] whitespace-nowrap" large tightRight light>
+                  <ContactButton className="h-[60px] whitespace-nowrap self-start" large light>
                     Demandez un devis
                   </ContactButton>
                 </div>

@@ -1,52 +1,63 @@
-import { FileText, Calendar, Euro } from "lucide-react"
-import * as React from "react"
-
-import Glow from "@/components/ui/glow"
-
-const lignes = [
-  { libelle: "Maquettes & design", montant: "Sur devis" },
-  { libelle: "Développement site", montant: "Sur devis" },
-  { libelle: "Formation & mise en ligne", montant: "Inclus" },
-]
-
-function DevisIllustration() {
+export default function DevisIllustration() {
   return (
-    <div className="relative flex w-full items-center justify-center p-4">
-      <div className="w-full max-w-[280px] rounded-2xl border border-gray-200 bg-white p-5 shadow-lg">
-        <div className="flex items-center gap-3 border-b border-gray-100 pb-4 mb-4">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-500/15">
-            <FileText className="h-5 w-5 text-primary-500" />
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900">Devis & proposition</h3>
-            <p className="text-xs text-gray-500 flex items-center gap-1">
-              <Calendar className="h-3.5 w-3.5" />
-              Planning et budget transparents
-            </p>
-          </div>
+    <div className="w-full h-full min-h-[200px] flex items-center justify-center overflow-hidden">
+      <style>{`
+        @keyframes floatBubble {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-7px); }
+        }
+        @keyframes floatTag {
+          0%, 100% { transform: rotate(-12deg) translateY(0px); }
+          50% { transform: rotate(-12deg) translateY(-6px); }
+        }
+        @keyframes cursorMove {
+          0%   { transform: translate(0px, 0px); }
+          25%  { transform: translate(18px, -12px); }
+          50%  { transform: translate(30px, -6px); }
+          75%  { transform: translate(14px, 8px); }
+          100% { transform: translate(0px, 0px); }
+        }
+      `}</style>
+
+      <div className="relative flex items-center justify-center" style={{ width: 260, height: 140 }}>
+
+        {/* Bulle blanche */}
+        <div
+          className="absolute top-0 left-6 bg-white px-5 py-3 shadow-md border border-gray-100"
+          style={{ borderRadius: '0.5rem', animation: 'floatBubble 3.5s ease-in-out infinite' }}
+        >
+          <p className="text-gray-900 font-semibold text-[15px] leading-snug whitespace-nowrap">
+            Besoin d&apos;un devis ?
+          </p>
         </div>
-        <ul className="space-y-3">
-          {lignes.map((l, i) => (
-            <li key={i} className="flex justify-between text-sm">
-              <span className="text-gray-600">{l.libelle}</span>
-              <span className="font-medium text-gray-900">{l.montant}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-4 pt-4 flex items-center justify-between border-t border-gray-200">
-          <span className="text-sm font-semibold text-gray-900">Total</span>
-          <span className="flex items-center gap-1 text-sm font-semibold text-primary-500">
-            <Euro className="h-4 w-4" />
-            Sur devis
+
+        {/* Curseur */}
+        <div
+          className="absolute left-0 top-[52px]"
+          style={{ animation: 'cursorMove 4s ease-in-out infinite' }}
+        >
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+            <path d="M4 2L20 10L12 13L9 21L4 2Z" fill="#0033ff" stroke="#0033ff" strokeWidth="1.5" strokeLinejoin="round"/>
+          </svg>
+        </div>
+
+        {/* Tag bleu style FinalCTA */}
+        <div
+          className="absolute bottom-0 right-4"
+          style={{
+            backgroundColor: 'rgba(0,51,255,0.93)',
+            boxShadow: '0 0 8px 2px rgba(0,51,255,0.25), 0 0 18px 4px rgba(0,51,255,0.12), 0 4px 10px rgba(0,0,0,0.2), inset 0 1px 4px rgba(80,120,255,0.45)',
+            borderRadius: '0.5rem',
+            padding: '10px 20px',
+            animation: 'floatTag 4.5s ease-in-out infinite 0.8s',
+          }}
+        >
+          <span className="text-white font-medium text-[15px] whitespace-nowrap">
+            Proposition envoyée
           </span>
         </div>
+
       </div>
-      <Glow
-        variant="center"
-        className="pointer-events-none scale-x-[1.5] opacity-20 transition-all duration-300 group-hover:opacity-30"
-      />
     </div>
   )
 }
-
-export default DevisIllustration

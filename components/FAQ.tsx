@@ -4,6 +4,7 @@
 
 import { useState } from 'react'
 import { Particles } from './Particles'
+import WordReveal from '@/components/WordReveal'
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
@@ -42,9 +43,9 @@ export default function FAQ() {
               <span className="text-[16px] text-gray-700">FAQ</span>
             </div>
             <h2 className="text-[48px] font-semibold text-black mb-4 leading-tight">
-              Vos questions,
+              <WordReveal startIndex={0}>{"Vos questions,"}</WordReveal>
               <br />
-              nos réponses
+              <WordReveal startIndex={2}>{"nos réponses"}</WordReveal>
             </h2>
             <p className="text-[18px] text-gray-500 mb-8">
               Tout ce que vous devez savoir avant de démarrer.
